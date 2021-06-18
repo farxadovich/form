@@ -1,6 +1,9 @@
-from django import forms
+from django.forms import ModelForm
+from .models import Student
 
 
-class TextForm(forms.Form):
-    ismi = forms.CharField(label="Your first name ", max_length=80)
-    familiyasi = forms.CharField(label="Your second name", max_length=90)
+class StudentFrom(ModelForm):
+    class Meta:
+        model = Student
+        fields = ['name', 'surname', 'age', 'emeil']
+
